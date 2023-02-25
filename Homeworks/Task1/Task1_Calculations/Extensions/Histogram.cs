@@ -15,7 +15,7 @@ public static class Histogram
 
         foreach (var key in dict.Keys)
         {
-            dict[key] = Math.Round(dict[key] * 100 / numbers.Count, 2);
+            dict[key] = Math.Round(dict[key] / numbers.Count, 2);
         }
 
         return dict;
