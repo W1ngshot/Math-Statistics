@@ -1,4 +1,6 @@
-﻿namespace Statistics;
+﻿using System.Runtime.CompilerServices;
+
+namespace Statistics;
 
 public static class Formulas
 {
@@ -26,11 +28,26 @@ public static class Formulas
     public static double CalculateInterquartileLatitude(IReadOnlyList<double> values, int accuracy = 2) =>
         InterquartileLatitude(values).ToRound(accuracy);
 
+    public static double CalculateCorrelationCoefficient(
+        IReadOnlyCollection<(double X, double Y)> values, int accuracy = 2) =>
+        CorrelationCoefficient(values).ToRound(accuracy);
+
+    public static (double a, double b) CalculateRegressionCoefficients(
+        IReadOnlyCollection<(double X, double Y)> values, int accuracy = 2) =>
+        RegressionCoefficients(values).ToRound(accuracy);
+
+    public static double CalculateRegressionValueInPoint(IReadOnlyCollection<(double X, double Y)> values,
+        double yValue, int accuracy = 2) =>
+        RegressionValueInPoint(values, yValue).ToRound(accuracy);
+
 
     #region MathFormulas
     
     private static double Average(IReadOnlyCollection<double> values) =>
         values.Sum() / values.Count;
+
+    private static double MultiplyAverage(IReadOnlyCollection<(double X, double Y)> values) =>
+        values.Sum(val => val.X * val.Y) / values.Count;
     
     private static double SampleVariance(IReadOnlyCollection<double> values)
     {
@@ -68,6 +85,53 @@ public static class Formulas
             (values[(int)Math.Floor(3 * (size - 1) / 4d)] + values[(int)Math.Ceiling(3 * (size - 1) / 4d)]) / 2d;
         return q34 - q14;
     }
+
+    private static double CorrelationCoefficient(IReadOnlyCollection<(double X, double Y)> values)
+    {
+        var xValues = values.Select(val => val.X).ToList();
+        var yValues = values.Select(val => val.Y).ToList();
+        var multiplyAverage = MultiplyAverage(values);
+        var xAverage = Average(xValues);
+        var yAverage = Average(yValues);
+        var xDeviation = StandardDeviation(xValues);
+        var yDeviation = StandardDeviation(yValues);
+
+        return (multiplyAverage - xAverage * yAverage) / (xDeviation * yDeviation);
+    }
     
+    private static (double a, double b) RegressionCoefficients(IReadOnlyCollection<(double X, double Y)> values)
+    {
+        var xValues = values.Select(val => val.X).ToList();
+        var yValues = values.Select(val => val.Y).ToList();
+        var xAverage = Average(xValues);
+        var yAverage = Average(yValues);
+        var xDeviation = StandardDeviation(xValues);
+        var yDeviation = StandardDeviation(yValues);
+        var correlation = CorrelationCoefficient(values);
+
+        var b = correlation * yDeviation / xDeviation;
+        var a = yAverage - b * xAverage;
+        return (a, b);
+    }
+
+    private static (double a, double b) RegressionCoefficients2(IReadOnlyCollection<(double X, double Y)> values)
+    {
+        var n = values.Count;
+        var ySum = values.Sum(val => val.Y);
+        var xSum = values.Sum(val => val.X);
+        var xySum = values.Sum(val => val.X * val.Y);
+        var xxSum = values.Sum(val => val.X * val.X);
+
+        var b = (ySum * xSum / n - xySum) / (xSum * xSum / n - xxSum);
+        var a = (ySum - b * xSum) / n;
+        return (a, b);
+    }
+
+    private static double RegressionValueInPoint(IReadOnlyCollection<(double X, double Y)> values, double yValue)
+    {
+        var coefficients = RegressionCoefficients2(values);
+        return (yValue - coefficients.a) / coefficients.b;
+    }
+
     #endregion
 }
