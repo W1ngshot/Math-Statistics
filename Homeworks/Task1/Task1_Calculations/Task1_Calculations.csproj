@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\Extensions\Statistics\Statistics.csproj" />
       <ProjectReference Include="..\..\..\Extensions\Parser\Parser.csproj" />
       <ProjectReference Include="..\..\..\Extensions\ReflectionExtensions\ReflectionExtensions.csproj" />
     </ItemGroup>

@@ -4,7 +4,7 @@ namespace Parser;
 
 public static class Parser
 {
-    public static List<double> ParseFile(string path)
+    public static List<double> ParseXFromFile(string path)
     {
         return File.ReadAllLines(path)
             .Select(a => a.Split(';').First())
