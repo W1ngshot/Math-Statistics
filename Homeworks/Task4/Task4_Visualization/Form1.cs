@@ -17,13 +17,13 @@ public partial class Form1 : Form
 
         var plotModel = new PlotModel
         {
-            Title = "Normal Distribution and Empirical Distribution"
+            Title = "Exponential Distribution and Empirical Distribution"
         };
 
         // Create a line series for the normal distribution
         var normalSeries = new LineSeries
         {
-            Title = "Normal Distribution"
+            Title = "Exponential Distribution"
         };
         for (double x = 0; x <= 6; x += 0.01)
         {
