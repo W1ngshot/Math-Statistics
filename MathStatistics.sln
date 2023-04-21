@@ -44,6 +44,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task4_Calculation", "Homewo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task4_Visualization", "Homeworks\Task4\Task4_Visualization\Task4_Visualization.csproj", "{36B36724-2647-4D87-B6BD-036D0A59E9E7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task5", "Task5", "{952C5038-EA19-47DA-AD38-0143D878E5BE}"
+	ProjectSection(SolutionItems) = preProject
+		Homeworks\Task5\Task5_Data.csv = Homeworks\Task5\Task5_Data.csv
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task5_Calculations", "Homeworks\Task5\Task5_Calculations\Task5_Calculations.csproj", "{4C90D9B5-C5ED-484F-A7DC-EAF5DFEB356A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task6", "Task6", "{C6210766-9B7F-4757-8503-8F26EFD572FB}"
+	ProjectSection(SolutionItems) = preProject
+		Homeworks\Task6\Task6_Data.csv = Homeworks\Task6\Task6_Data.csv
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task6_Calculations", "Homeworks\Task6\Task6_Calculations\Task6_Calculations.csproj", "{4C780070-AAA5-4BFF-9BD1-FE62BBD1E784}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +78,10 @@ Global
 		{79352AEB-2EDC-4D6F-90A5-50A9CC6DC69E} = {03720C85-77C1-428B-94BC-0F5659884B29}
 		{5D60D27F-E4A0-4642-AD2B-019400EB5F73} = {79352AEB-2EDC-4D6F-90A5-50A9CC6DC69E}
 		{36B36724-2647-4D87-B6BD-036D0A59E9E7} = {79352AEB-2EDC-4D6F-90A5-50A9CC6DC69E}
+		{952C5038-EA19-47DA-AD38-0143D878E5BE} = {03720C85-77C1-428B-94BC-0F5659884B29}
+		{4C90D9B5-C5ED-484F-A7DC-EAF5DFEB356A} = {952C5038-EA19-47DA-AD38-0143D878E5BE}
+		{C6210766-9B7F-4757-8503-8F26EFD572FB} = {03720C85-77C1-428B-94BC-0F5659884B29}
+		{4C780070-AAA5-4BFF-9BD1-FE62BBD1E784} = {C6210766-9B7F-4757-8503-8F26EFD572FB}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{1E6915D5-C700-4022-B4A8-7958BC6171F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -106,5 +124,13 @@ Global
 		{36B36724-2647-4D87-B6BD-036D0A59E9E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36B36724-2647-4D87-B6BD-036D0A59E9E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36B36724-2647-4D87-B6BD-036D0A59E9E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C90D9B5-C5ED-484F-A7DC-EAF5DFEB356A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C90D9B5-C5ED-484F-A7DC-EAF5DFEB356A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C90D9B5-C5ED-484F-A7DC-EAF5DFEB356A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C90D9B5-C5ED-484F-A7DC-EAF5DFEB356A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C780070-AAA5-4BFF-9BD1-FE62BBD1E784}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C780070-AAA5-4BFF-9BD1-FE62BBD1E784}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C780070-AAA5-4BFF-9BD1-FE62BBD1E784}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C780070-AAA5-4BFF-9BD1-FE62BBD1E784}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
